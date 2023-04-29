@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 289953880549227842}
   - component: {fileID: 5176605533846990674}
   - component: {fileID: 6867779879188708161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tower-heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

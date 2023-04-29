@@ -8,11 +8,14 @@ public class SimpleEnemyBehaviour : MonoBehaviour
         Idle,
         Walking,
         Eating,
+        Blocked,
     };
 
     private State state;
+    private State stateAfterBlock;
     private SimpleNavigator navigate;
     private EatLiverBehaviour eat;
+    private FreezeBehaviour freeze;
     public float waitBeforeEating = 1;
     public string liverTag = "Liver";
 
@@ -20,6 +23,7 @@ public class SimpleEnemyBehaviour : MonoBehaviour
     {
         navigate = GetComponent<SimpleNavigator>();
         eat = GetComponent<EatLiverBehaviour>();
+        freeze = GetComponent<FreezeBehaviour>();
         state = State.Walking;
     }
 
@@ -27,6 +31,24 @@ public class SimpleEnemyBehaviour : MonoBehaviour
     {
         navigate.enabled = state == State.Walking;
         eat.enabled = state == State.Eating;
+        freeze.enabled = state == State.Blocked;
+    }
+
+    public void Block(float time)
+    {
+        if (state != State.Blocked)
+        {
+            stateAfterBlock = state;
+            state = State.Blocked;
+        }
+        StopAllCoroutines();
+        StartCoroutine(Unblock(time));
+    }
+
+    IEnumerator Unblock(float time)
+    {
+        yield return new WaitForSeconds(time);
+        state = stateAfterBlock;
     }
 
     IEnumerator TransitionToEating()
@@ -39,6 +61,7 @@ public class SimpleEnemyBehaviour : MonoBehaviour
     {
         if (other.tag == liverTag)
         {
+            StopAllCoroutines();
             StartCoroutine(TransitionToEating());
         }
     }
