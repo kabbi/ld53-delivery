@@ -418,7 +418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockInterval: 1
+  activeInterval: 5
+  inactiveInterval: 10
   enemyTag: Enemy
+  halo: {fileID: 8166833535381262082}
   radius: 2
 --- !u!114 &7790150195997454878
 MonoBehaviour:
