@@ -29,7 +29,7 @@ public class SimpleTowerBehaviour : MonoBehaviour
             Collider2D nearest = null;
             float nearestDistance = float.PositiveInfinity;
             Collider2D[] items = Physics2D.OverlapCircleAll(transform.position, radius);
-            Debug.Log(items);
+
             foreach (var item in items)
             {
                 if (item.tag != "Enemy")

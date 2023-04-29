@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(intervalMin, intervalMax));
             Vector2 position = Random.insideUnitCircle.normalized * radius;
             GameObject enemy = Instantiate(prefab, position, Quaternion.identity);
+            enemy.transform.localScale = Vector2.one * Random.Range(0.7f, 1);
             enemy.GetComponent<SimpleNavigator>().speed = Random.Range(speedMin, speedMax);
         }
     }
