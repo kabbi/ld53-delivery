@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Damage
   - DamageTarget
+  - Tower
   layers:
   - Default
   - TransparentFX

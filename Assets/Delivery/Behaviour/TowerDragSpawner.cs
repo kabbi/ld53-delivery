@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 public class TowerDragSpawner : MonoBehaviour
 {
     public GameObject prefab;
+    public Transform progressBar;
+    public GameObject disabledIndicator;
+    public float cooldown = 10;
+    private float timeUsed;
+    private bool ready;
 
     void Start()
     {
@@ -24,11 +29,14 @@ public class TowerDragSpawner : MonoBehaviour
         endDragEntry.eventID = EventTriggerType.EndDrag;
         endDragEntry.callback.AddListener((data) => { OnEndDrag((PointerEventData)data); });
         trigger.triggers.Add(endDragEntry);
+
+        StartCoroutine(DisabledCheck());
     }
 
     public void OnBeginDrag(PointerEventData data)
     {
-        Instantiate(gameObject, transform.parent);
+        GameObject button = Instantiate(gameObject, transform.parent);
+        button.GetComponent<TowerDragSpawner>().StartCooldown();
     }
 
     public void OnDrag(PointerEventData data)
@@ -43,5 +51,41 @@ public class TowerDragSpawner : MonoBehaviour
     {
         Instantiate(prefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public void StartCooldown()
+    {
+        StartCoroutine(Cooldown());
+    }
+
+    IEnumerator DisabledCheck()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+            bool allowed = towers.Length < 6;
+            disabledIndicator.SetActive(!allowed);
+        }
+    }
+
+    IEnumerator Cooldown()
+    {
+        EventTrigger eventTrigger = GetComponent<EventTrigger>();
+        eventTrigger.enabled = false;
+        timeUsed = Time.time;
+        while (true)
+        {
+            yield return new WaitForEndOfFrame();
+            if (Time.time - timeUsed >= cooldown)
+            {
+                break;
+            }
+            float progress = (Time.time - timeUsed) / cooldown;
+            float halfProgress = progress / 2;
+            progressBar.transform.localPosition = new Vector3(0, -0.5f + halfProgress, 0);
+            progressBar.transform.localScale = new Vector3(1, progress, 1);
+        }
+        eventTrigger.enabled = true;
     }
 }

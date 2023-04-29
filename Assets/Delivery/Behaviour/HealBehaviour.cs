@@ -46,6 +46,9 @@ public class HealBehaviour : MonoBehaviour
             if (nearest != null)
             {
                 Destroy(nearest.gameObject);
+
+                ScoreIndicator score = GameObject.FindAnyObjectByType<ScoreIndicator>();
+                score?.LogEvent(ScoreIndicator.Event.LiverHealed);
             }
 
         }

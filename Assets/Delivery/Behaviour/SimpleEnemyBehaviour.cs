@@ -34,6 +34,12 @@ public class SimpleEnemyBehaviour : MonoBehaviour
         freeze.enabled = state == State.Blocked;
     }
 
+    void OnDestroy()
+    {
+        ScoreIndicator score = GameObject.FindAnyObjectByType<ScoreIndicator>();
+        score?.LogEvent(ScoreIndicator.Event.EnemyDeath);
+    }
+
     public void Block(float time)
     {
         if (state != State.Blocked)

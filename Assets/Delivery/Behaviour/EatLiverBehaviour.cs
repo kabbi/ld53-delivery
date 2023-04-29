@@ -22,6 +22,9 @@ public class EatLiverBehaviour : MonoBehaviour
             yield return new WaitForSeconds(interval);
             GameObject damage = Instantiate(damagePrefab, transform.position, Quaternion.identity, target);
             damage.transform.localScale = Vector3.one * Random.Range(0.2f, sizeVariation) / target.localScale.x;
+
+            ScoreIndicator score = GameObject.FindAnyObjectByType<ScoreIndicator>();
+            score?.LogEvent(ScoreIndicator.Event.LiverEaten);
         }
     }
 }
