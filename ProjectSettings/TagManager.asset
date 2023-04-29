@@ -7,6 +7,7 @@ TagManager:
   - Liver
   - Enemy
   - Damage
+  - DamageTarget
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 4199923513
+    locked: 0
+  - name: UI
+    uniqueID: 3964426995
     locked: 0
