@@ -7,13 +7,14 @@ public class SpawnOrchestrator : MonoBehaviour
     public enum ActionType
     {
         Wait,
-        Enable,
-        EnableSequential,
+        SpawnGroup,
+        SpawnOneByOne,
     }
 
     [Serializable]
     public struct Action
     {
+        public string label;
         public ActionType type;
         public float wait;
         public float interval;
@@ -45,11 +46,11 @@ public class SpawnOrchestrator : MonoBehaviour
                     case ActionType.Wait:
                         yield return new WaitForSeconds(item.wait);
                         break;
-                    case ActionType.Enable:
+                    case ActionType.SpawnGroup:
                         GameObject clone = Instantiate(item.target, transform);
                         clone.SetActive(true);
                         break;
-                    case ActionType.EnableSequential:
+                    case ActionType.SpawnOneByOne:
                         foreach (var target in item.targets)
                         {
                             GameObject cloned = Instantiate(target, transform);

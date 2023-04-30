@@ -5,6 +5,7 @@ public class EatLiverBehaviour : MonoBehaviour
 {
     public float interval = 2;
     public GameObject damagePrefab;
+    public Sprite[] damageSprites;
     public float sizeVariation = 1.5f;
     public string targetTag;
     private Transform target;
@@ -22,6 +23,7 @@ public class EatLiverBehaviour : MonoBehaviour
             yield return new WaitForSeconds(interval);
             GameObject damage = Instantiate(damagePrefab, transform.position, Quaternion.identity, target);
             damage.transform.localScale = Vector3.one * Random.Range(0.2f, sizeVariation) / target.localScale.x;
+            damage.GetComponent<SpriteRenderer>().sprite = damageSprites[Random.Range(0, damageSprites.Length)];
 
             ScoreIndicator score = GameObject.FindAnyObjectByType<ScoreIndicator>();
             score?.LogEvent(ScoreIndicator.Event.LiverEaten);

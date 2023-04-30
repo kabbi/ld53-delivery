@@ -181,6 +181,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 2
   damagePrefab: {fileID: 55772582468135619, guid: a3ff475a2be244ba2afa93599c4c78a6, type: 3}
+  damageSprites:
+  - {fileID: 21300000, guid: 15071b386315140a28f77f317069272f, type: 3}
+  - {fileID: 21300000, guid: 9bb9161cef7c14f2fae6b6a59735b97c, type: 3}
+  - {fileID: 21300000, guid: 6d1dd40c6a93045eb85a1631131456ab, type: 3}
   sizeVariation: 1
   targetTag: DamageTarget
 --- !u!114 &2306712118448138282
