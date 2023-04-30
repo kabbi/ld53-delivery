@@ -14,7 +14,7 @@ public class SpawnOrchestrator : MonoBehaviour
     [Serializable]
     public struct Action
     {
-        public string label;
+        public string name;
         public ActionType type;
         public float wait;
         public float interval;
