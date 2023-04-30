@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
-  speed: 1
+  speed: 1.5
   rigidBody: {fileID: 4823050632425354189}
 --- !u!114 &2656728697759521447
 MonoBehaviour:

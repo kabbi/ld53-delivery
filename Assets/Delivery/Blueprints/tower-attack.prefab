@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 2
-  radius: 4
+  radius: 2
   bulletPrefab: {fileID: 347244060571921836, guid: eddf99d301cdc4d2787c56fde83f9684, type: 3}
   bulletSpeed: 1000
 --- !u!114 &4431451149219804745

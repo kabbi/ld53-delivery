@@ -274,6 +274,7 @@ MonoBehaviour:
   progressBar: {fileID: 3236439191224088035}
   disabledIndicator: {fileID: 2616008957870128495}
   cooldown: 10
+  maxTowers: 8
 --- !u!1 &5907996927933048175
 GameObject:
   m_ObjectHideFlags: 0
