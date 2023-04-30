@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2306712118448138282}
   - component: {fileID: 4412267249191508064}
   m_Layer: 0
-  m_Name: enemy-blue
+  m_Name: enemy-fat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -1153632251
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e5dd8047952c24e5e89af8afc74868b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f1d34fa1d678480dbeea721161b129c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,6 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e23f048abe94ed0bca9a2706806f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 3
   waitBeforeEating: 1
   liverTag: Liver

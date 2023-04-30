@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2306712118448138282}
   - component: {fileID: 4412267249191508064}
   m_Layer: 0
-  m_Name: enemy-blue
+  m_Name: enemy-smoking
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,6 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e23f048abe94ed0bca9a2706806f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   waitBeforeEating: 1
   liverTag: Liver

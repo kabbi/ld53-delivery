@@ -11,13 +11,15 @@ public class SimpleEnemyBehaviour : MonoBehaviour
         Blocked,
     };
 
+    public float health = 1;
+    public float waitBeforeEating = 1;
+    public string liverTag = "Liver";
     private State state;
     private State stateAfterBlock;
     private SimpleNavigator navigate;
     private EatLiverBehaviour eat;
     private FreezeBehaviour freeze;
-    public float waitBeforeEating = 1;
-    public string liverTag = "Liver";
+    private float currentHealth;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class SimpleEnemyBehaviour : MonoBehaviour
         eat = GetComponent<EatLiverBehaviour>();
         freeze = GetComponent<FreezeBehaviour>();
         state = State.Walking;
+        currentHealth = health;
     }
 
     void Update()
@@ -38,6 +41,15 @@ public class SimpleEnemyBehaviour : MonoBehaviour
     {
         ScoreIndicator score = GameObject.FindAnyObjectByType<ScoreIndicator>();
         score?.LogEvent(ScoreIndicator.Event.EnemyDeath);
+    }
+
+    public void Damage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Block(float time)
