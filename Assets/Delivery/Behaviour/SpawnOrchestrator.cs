@@ -19,8 +19,10 @@ public class SpawnOrchestrator : MonoBehaviour
         public float interval;
         public GameObject target;
         public GameObject[] targets;
+        public Sprite waveSprite;
     }
 
+    public SpriteRenderer currentWaveRenderer;
     public Action[] sequence;
 
     void Start()
@@ -34,22 +36,26 @@ public class SpawnOrchestrator : MonoBehaviour
         {
             foreach (var item in sequence)
             {
+                if (item.waveSprite != null)
+                {
+                    currentWaveRenderer.sprite = item.waveSprite;
+                }
                 switch (item.type)
                 {
                     case ActionType.Wait:
                         yield return new WaitForSeconds(item.wait);
                         break;
                     case ActionType.Enable:
-                        item.target.SetActive(true);
+                        GameObject clone = Instantiate(item.target, transform);
+                        clone.SetActive(true);
                         break;
                     case ActionType.EnableSequential:
                         foreach (var target in item.targets)
                         {
-                            target.SetActive(true);
+                            GameObject cloned = Instantiate(target, transform);
+                            cloned.SetActive(true);
                             yield return new WaitForSeconds(item.interval);
                         }
-                        break;
-                    default:
                         break;
                 }
             }
