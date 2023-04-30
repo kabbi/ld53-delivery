@@ -392,7 +392,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 1
 --- !u!114 &5176605533846990674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +422,7 @@ MonoBehaviour:
   inactiveInterval: 10
   enemyTag: Enemy
   halo: {fileID: 8166833535381262082}
+  haloScaleUnit: 1.37
   radius: 2.49
 --- !u!114 &7790150195997454878
 MonoBehaviour:

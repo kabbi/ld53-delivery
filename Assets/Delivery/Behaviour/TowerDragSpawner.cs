@@ -8,6 +8,7 @@ public class TowerDragSpawner : MonoBehaviour
     public Transform progressBar;
     public GameObject disabledIndicator;
     public float cooldown = 10;
+    public float maxTowers = 6;
     private float timeUsed;
     private bool ready;
 
@@ -64,8 +65,8 @@ public class TowerDragSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
-            bool allowed = towers.Length < 6;
-            disabledIndicator.SetActive(!allowed);
+            bool wegood = towers.Length < maxTowers;
+            disabledIndicator.SetActive(!wegood);
         }
     }
 
