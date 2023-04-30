@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerDamageBehaviour : MonoBehaviour
 {
-    public GameObject[] damageIndicators;
+    public Sprite[] damageSprites;
+    public SpriteRenderer spriteRenderer;
     public string enemyTag = "Enemy";
     private int hits = 0;
     private int health;
 
     void Start()
     {
-        health = damageIndicators.Length;
+        health = damageSprites.Length + 1;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,9 +28,9 @@ public class TowerDamageBehaviour : MonoBehaviour
 
     void UpdateIndicators()
     {
-        for (int i = 0; i < damageIndicators.Length; i++)
+        if (hits > 0 && hits < health)
         {
-            damageIndicators[i].SetActive(hits > i);
+            spriteRenderer.sprite = damageSprites[hits - 1];
         }
     }
 }

@@ -84,7 +84,7 @@ public class TowerDragSpawner : MonoBehaviour
             float progress = (Time.time - timeUsed) / cooldown;
             float halfProgress = progress / 2;
             progressBar.transform.localPosition = new Vector3(0, -0.5f + halfProgress, 0);
-            progressBar.transform.localScale = new Vector3(1, progress, 1);
+            progressBar.transform.localScale = new Vector3(2, progress * 2, 2);
         }
         eventTrigger.enabled = true;
     }

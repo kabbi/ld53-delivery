@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldBehaviour : MonoBehaviour
@@ -9,11 +8,13 @@ public class ShieldBehaviour : MonoBehaviour
     public float inactiveInterval = 10;
     public string enemyTag = "Enemy";
     public GameObject halo;
+    public float haloScaleUnit = 1.37f;
     public float radius = 10;
 
     void Start()
     {
         StartCoroutine(Blink());
+        halo.transform.localScale = Vector3.one * radius / haloScaleUnit;
     }
 
     void OnDrawGizmosSelected()
