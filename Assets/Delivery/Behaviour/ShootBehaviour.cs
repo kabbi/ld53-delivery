@@ -7,11 +7,14 @@ public class ShootBehaviour : MonoBehaviour
     public float shootInterval = 3;
     public float radius = 10;
     public GameObject bulletPrefab;
+    public Transform halo;
+    public float haloScaleUnit = 1.37f;
     public float bulletSpeed = 3;
 
     void Start()
     {
         StartCoroutine(Shoot());
+        halo.transform.localScale = Vector3.one * radius / haloScaleUnit;
     }
 
     void OnDrawGizmosSelected()
