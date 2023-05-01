@@ -37,7 +37,7 @@ Transform:
   - {fileID: 770774116295073849}
   - {fileID: 5595461037985124936}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8510768221093391555
 MonoBehaviour:
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWaveRenderer: {fileID: 0}
+  startFromIndex: 0
   sequence:
   - name: wait 10
     type: 0
@@ -458,7 +459,14 @@ MonoBehaviour:
     waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
   - name: wait 5 35
     type: 0
-    wait: 5
+    wait: 7
+    interval: 2
+    target: {fileID: 2174665071558528459}
+    targets: []
+    waveSprite: {fileID: 21300000, guid: 326a5f05881664d76aa24d36c26b7a86, type: 3}
+  - name: wait 5 35
+    type: 0
+    wait: 7
     interval: 2
     target: {fileID: 2174665071558528459}
     targets: []
@@ -514,6 +522,25 @@ MonoBehaviour:
     target: {fileID: 2174665071558528459}
     targets: []
     waveSprite: {fileID: 21300000, guid: 326a5f05881664d76aa24d36c26b7a86, type: 3}
+  - name: 1smoke 30
+    type: 1
+    wait: 30
+    interval: 2
+    target: {fileID: 8661002750103980529}
+    targets:
+    - {fileID: 901141306653789632}
+    - {fileID: 1851292506051359882}
+    - {fileID: 7188095143045986972}
+    - {fileID: 5035099614710690479}
+    - {fileID: 6597691486700298776}
+    waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
+  - name: wait 5 40
+    type: 0
+    wait: 5
+    interval: 2
+    target: {fileID: 2174665071558528459}
+    targets: []
+    waveSprite: {fileID: 21300000, guid: 326a5f05881664d76aa24d36c26b7a86, type: 3}
   - name: 1alco35
     type: 2
     wait: 3
@@ -558,6 +585,25 @@ MonoBehaviour:
     - {fileID: 1601546457097861224}
     - {fileID: 6175485808211111269}
     - {fileID: 2683936581385656675}
+    waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
+  - name: wait 5 35
+    type: 0
+    wait: 5
+    interval: 2
+    target: {fileID: 2174665071558528459}
+    targets: []
+    waveSprite: {fileID: 21300000, guid: 326a5f05881664d76aa24d36c26b7a86, type: 3}
+  - name: 1smoke 40
+    type: 1
+    wait: 30
+    interval: 2
+    target: {fileID: 8661002750103980529}
+    targets:
+    - {fileID: 901141306653789632}
+    - {fileID: 1851292506051359882}
+    - {fileID: 7188095143045986972}
+    - {fileID: 5035099614710690479}
+    - {fileID: 6597691486700298776}
     waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
   - name: wait 30
     type: 0
@@ -874,11 +920,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.65
+      value: -3.58
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -912,13 +958,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1099,7 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -1514,13 +1564,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1626,7 +1680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -1671,6 +1725,10 @@ PrefabInstance:
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
+      propertyPath: health
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_Name
@@ -1892,13 +1950,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (5)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2373,11 +2435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.92
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.97
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2411,13 +2473,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (10)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2808,11 +2874,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.09
+      value: 12.74
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.63
+      value: -10.84
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2846,13 +2912,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (7)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2957,11 +3027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.52
+      value: -13.56
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.28
+      value: -8.07
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2995,13 +3065,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (3)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3032,7 +3106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -3476,7 +3550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -3563,11 +3637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.17
+      value: -15.9
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: -7.22
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3601,13 +3675,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (11)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3638,7 +3716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -3796,7 +3874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -3842,6 +3920,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_Name
       value: enemy-drugs (2)
@@ -3879,7 +3961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -3925,6 +4007,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_Name
       value: enemy-drugs (5)
@@ -3962,7 +4048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -4193,11 +4279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.19
+      value: 13.71
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.31
+      value: -10.32
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4231,13 +4317,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (8)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4430,7 +4520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.27
+      value: -9.87
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4464,13 +4554,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (9)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4543,13 +4637,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (6)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4580,7 +4678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -4887,7 +4985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -5049,11 +5147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.25
+      value: -14.8
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.87
+      value: -9.22
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5087,13 +5185,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5269,7 +5371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466706313428086319, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: speed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: f7527816af2c74cb683e42a191b7073d, type: 3}
       propertyPath: m_RootOrder
@@ -5426,11 +5528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.12
+      value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.24
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 4376903385851965381, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5464,13 +5566,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412267249191508064, guid: e92e1815294df44ec8523204fc22593a, type: 3}
+      propertyPath: waitBeforeEating
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_Name
       value: enemy-alco (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9081356867538405203, guid: e92e1815294df44ec8523204fc22593a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
