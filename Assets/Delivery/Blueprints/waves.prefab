@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 7291791186738212769}
   - component: {fileID: 1514596574256455853}
   m_Layer: 0
-  m_Name: Waves 1
+  m_Name: waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
