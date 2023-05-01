@@ -7,31 +7,41 @@ public class TowerDragSpawner : MonoBehaviour
     public GameObject prefab;
     public Transform progressBar;
     public GameObject disabledIndicator;
+    public SpriteRenderer sprite;
+    public Sprite disabledSprite;
     public float cooldown = 10;
     public float maxTowers = 6;
+    private EventTrigger eventTrigger;
+    private Sprite enabledSprite;
     private float timeUsed;
-    private bool ready;
+    private bool cooldownOk = true;
+    private bool limitOk = true;
 
     void Start()
     {
-        EventTrigger trigger = GetComponent<EventTrigger>();
+        eventTrigger = GetComponent<EventTrigger>();
 
         EventTrigger.Entry dragEntry = new EventTrigger.Entry();
         dragEntry.eventID = EventTriggerType.Drag;
         dragEntry.callback.AddListener((data) => { OnDrag((PointerEventData)data); });
-        trigger.triggers.Add(dragEntry);
+        eventTrigger.triggers.Add(dragEntry);
 
         EventTrigger.Entry beginDragEntry = new EventTrigger.Entry();
         beginDragEntry.eventID = EventTriggerType.BeginDrag;
         beginDragEntry.callback.AddListener((data) => { OnBeginDrag((PointerEventData)data); });
-        trigger.triggers.Add(beginDragEntry);
+        eventTrigger.triggers.Add(beginDragEntry);
 
         EventTrigger.Entry endDragEntry = new EventTrigger.Entry();
         endDragEntry.eventID = EventTriggerType.EndDrag;
         endDragEntry.callback.AddListener((data) => { OnEndDrag((PointerEventData)data); });
-        trigger.triggers.Add(endDragEntry);
+        eventTrigger.triggers.Add(endDragEntry);
 
-        StartCoroutine(DisabledCheck());
+        StartCoroutine(LimitCheck());
+    }
+
+    void Update()
+    {
+        eventTrigger.enabled = cooldownOk && limitOk;
     }
 
     public void OnBeginDrag(PointerEventData data)
@@ -59,21 +69,22 @@ public class TowerDragSpawner : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    IEnumerator DisabledCheck()
+    IEnumerator LimitCheck()
     {
+        enabledSprite = sprite.sprite;
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
-            bool wegood = towers.Length < maxTowers;
-            disabledIndicator.SetActive(!wegood);
+            limitOk = towers.Length < maxTowers;
+            sprite.sprite = limitOk ? enabledSprite : disabledSprite;
         }
     }
 
     IEnumerator Cooldown()
     {
         EventTrigger eventTrigger = GetComponent<EventTrigger>();
-        eventTrigger.enabled = false;
+        cooldownOk = false;
         timeUsed = Time.time;
         while (true)
         {
@@ -87,6 +98,6 @@ public class TowerDragSpawner : MonoBehaviour
             progressBar.transform.localPosition = new Vector3(0, -0.5f + halfProgress, 0);
             progressBar.transform.localScale = new Vector3(2, progress * 2, 2);
         }
-        eventTrigger.enabled = true;
+        cooldownOk = true;
     }
 }
