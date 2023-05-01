@@ -6,19 +6,15 @@ using TMPro;
 public class StartGameButton : MonoBehaviour
 {
     public string sceneName;
-    public TMP_Text nameInput;
-    private string playerName;
+    public string defaultPlayerName;
 
     public void StartGame()
     {
-        playerName = nameInput.GetParsedText();
-        AsyncOperation job = SceneManager.LoadSceneAsync(sceneName);
-        job.completed += SetPlayerName;
-    }
-
-    void SetPlayerName(AsyncOperation op)
-    {
-        LifeProgressBar life = GameObject.FindObjectOfType<LifeProgressBar>();
-        life.playerName = playerName;
+        SceneManager.LoadScene(sceneName);
+        if (defaultPlayerName != "" && PlayerName.Instance.playerName == "")
+        {
+            FindObjectOfType<PlayerNameSync>().enabled = false;
+            PlayerName.Instance.playerName = defaultPlayerName;
+        }
     }
 }

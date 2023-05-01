@@ -12,7 +12,13 @@ public class GameOverTracker : MonoBehaviour
     public TMP_Text scoreLabel;
     public AudioSource sounds;
     public float transitionDelay = 5;
+    private PlayerName persistedPlayerName;
     private bool done;
+
+    void Start()
+    {
+        persistedPlayerName = FindObjectOfType<PlayerName>();
+    }
 
     void Update()
     {
@@ -37,7 +43,7 @@ public class GameOverTracker : MonoBehaviour
         Camera.main.gameObject.SetActive(false);
         gameOverCamera.SetActive(true);
         float ageYears = progressBar.GetAgeYears();
-        scoreLabel.text = $"{progressBar.playerName}: {ageYears.ToString("F2")}";
+        scoreLabel.text = $"{persistedPlayerName.playerName}: {ageYears.ToString("F2")}";
     }
 
     IEnumerator GameWon()

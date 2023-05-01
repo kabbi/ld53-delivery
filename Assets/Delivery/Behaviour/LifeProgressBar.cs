@@ -8,14 +8,15 @@ public class LifeProgressBar : MonoBehaviour
     public Transform indicatorMin;
     public Transform indicatorMax;
     public TMP_Text label;
-    public string playerName;
     public float minAge = 14;
     public float maxAge = 80;
     private float lifeExpectancy;
+    private PlayerName persistedPlayerName;
 
     void Start()
     {
         lifeExpectancy = 0;
+        persistedPlayerName = FindObjectOfType<PlayerName>();
         foreach (var item in spawner.sequence)
         {
             if (item.type == SpawnOrchestrator.ActionType.Wait)
@@ -45,7 +46,7 @@ public class LifeProgressBar : MonoBehaviour
     {
         float progress = GetProgress();
         float ageYears = GetAgeYears();
-        label.text = $"{playerName}: {ageYears.ToString("F2")} y.o.";
+        label.text = $"{persistedPlayerName.playerName}: {ageYears.ToString("F2")} y.o.";
 
         indicator.position = Vector3.Lerp(indicatorMin.position, indicatorMax.position, progress); ;
     }
