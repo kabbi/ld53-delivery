@@ -35,7 +35,7 @@ public class GameOverTracker : MonoBehaviour
         Camera.main.gameObject.SetActive(false);
         gameOverCamera.SetActive(true);
         float ageYears = progressBar.GetAgeYears();
-        scoreLabel.text = $"YOU: {ageYears.ToString("F2")}";
+        scoreLabel.text = $"{progressBar.playerName}: {ageYears.ToString("F2")}";
     }
 
     IEnumerator GameWon()
