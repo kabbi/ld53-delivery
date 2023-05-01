@@ -24,6 +24,7 @@ public class SpawnOrchestrator : MonoBehaviour
     }
 
     public SpriteRenderer currentWaveRenderer;
+    public int startFromIndex = 0;
     public Action[] sequence;
 
     void Start()
@@ -35,8 +36,9 @@ public class SpawnOrchestrator : MonoBehaviour
     {
         while (true)
         {
-            foreach (var item in sequence)
+            for (int i = startFromIndex; i < sequence.Length; i++)
             {
+                Action item = sequence[i];
                 if (item.waveSprite != null)
                 {
                     currentWaveRenderer.sprite = item.waveSprite;
