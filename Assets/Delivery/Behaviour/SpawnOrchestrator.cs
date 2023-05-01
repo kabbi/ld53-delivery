@@ -21,9 +21,12 @@ public class SpawnOrchestrator : MonoBehaviour
         public GameObject target;
         public GameObject[] targets;
         public Sprite waveSprite;
+        public AudioClip startSound;
+        public float soundVolume;
     }
 
     public SpriteRenderer currentWaveRenderer;
+    public AudioSource soundPlayer;
     public int startFromIndex = 0;
     public Action[] sequence;
 
@@ -42,6 +45,10 @@ public class SpawnOrchestrator : MonoBehaviour
                 if (item.waveSprite != null)
                 {
                     currentWaveRenderer.sprite = item.waveSprite;
+                }
+                if (item.startSound != null)
+                {
+                    soundPlayer.PlayOneShot(item.startSound, item.soundVolume);
                 }
                 switch (item.type)
                 {
