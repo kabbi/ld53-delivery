@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -11,6 +9,7 @@ public class LifeProgressBar : MonoBehaviour
     public Vector2 indicatorRange;
     public Vector2 maskRange;
     public TMP_Text label;
+    public string playerName;
     public float minAge = 14;
     public float maxAge = 80;
     private float lifeExpectancy;
