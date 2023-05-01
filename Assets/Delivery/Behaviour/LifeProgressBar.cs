@@ -4,21 +4,17 @@ using TMPro;
 public class LifeProgressBar : MonoBehaviour
 {
     public SpawnOrchestrator spawner;
-    public Transform mask;
     public Transform indicator;
-    public Vector2 indicatorRange;
-    public Vector2 maskRange;
+    public Transform indicatorMin;
+    public Transform indicatorMax;
     public TMP_Text label;
     public string playerName;
     public float minAge = 14;
     public float maxAge = 80;
     private float lifeExpectancy;
-    private float maskMaxScale;
 
     void Start()
     {
-        maskMaxScale = mask.localScale.x;
-
         lifeExpectancy = 0;
         foreach (var item in spawner.sequence)
         {
@@ -49,17 +45,8 @@ public class LifeProgressBar : MonoBehaviour
     {
         float progress = GetProgress();
         float ageYears = GetAgeYears();
-        label.text = $"Age: {ageYears.ToString("F2")} years";
+        label.text = $"{playerName}: {ageYears.ToString("F2")} y.o.";
 
-        Vector3 indicatorPosition = indicator.localPosition;
-        indicatorPosition.x = Mathf.Lerp(indicatorRange.x, indicatorRange.y, progress);
-        indicator.localPosition = indicatorPosition;
-
-        Vector3 maskPosition = mask.localPosition;
-        Vector3 maskScale = mask.localScale;
-        maskScale.x = Mathf.Lerp(0, maskMaxScale, progress);
-        maskPosition.x = Mathf.Lerp(maskRange.x, maskRange.y, progress);
-        mask.localPosition = maskPosition;
-        mask.localScale = maskScale;
+        indicator.position = Vector3.Lerp(indicatorMin.position, indicatorMax.position, progress); ;
     }
 }
