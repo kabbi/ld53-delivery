@@ -686,6 +686,10 @@ PrefabInstance:
       propertyPath: cooldown
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 183964249295497966, guid: 69a3875aa275f4994a0756508acf99fc, type: 3}
+      propertyPath: disabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9a15af89f7c84c8eb986cdf92bac7d6, type: 3}
     - target: {fileID: 692364984745584872, guid: 69a3875aa275f4994a0756508acf99fc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -848,6 +852,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7810661116086852922}
     m_Modifications:
+    - target: {fileID: 183964249295497966, guid: 69a3875aa275f4994a0756508acf99fc, type: 3}
+      propertyPath: disabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f056a5549f4547d4b69d927a46c71d6, type: 3}
     - target: {fileID: 692364984745584872, guid: 69a3875aa275f4994a0756508acf99fc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1026,6 +1034,10 @@ PrefabInstance:
       propertyPath: cooldown
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 183964249295497966, guid: 69a3875aa275f4994a0756508acf99fc, type: 3}
+      propertyPath: disabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95557b84e80a94f5da4a67b4fe72c135, type: 3}
     - target: {fileID: 692364984745584872, guid: 69a3875aa275f4994a0756508acf99fc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

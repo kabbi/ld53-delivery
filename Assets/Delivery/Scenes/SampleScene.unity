@@ -3366,6 +3366,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8510768221093391555, guid: 6204b0348e3db4702a481dba1a962046, type: 3}
+      propertyPath: startFromIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510768221093391555, guid: 6204b0348e3db4702a481dba1a962046, type: 3}
       propertyPath: currentWaveRenderer
       value: 
       objectReference: {fileID: 1893687919}
