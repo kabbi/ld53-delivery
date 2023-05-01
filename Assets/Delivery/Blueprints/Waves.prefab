@@ -605,6 +605,43 @@ MonoBehaviour:
     - {fileID: 5035099614710690479}
     - {fileID: 6597691486700298776}
     waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
+  - name: wait 3 40
+    type: 0
+    wait: 3
+    interval: 2
+    target: {fileID: 4512312164144840980}
+    targets:
+    - {fileID: 1600573486148899579}
+    - {fileID: 7519677261561643802}
+    - {fileID: 3211396011108983758}
+    - {fileID: 8792629706342179479}
+    - {fileID: 1057385989798783444}
+    - {fileID: 5393093543409087915}
+    - {fileID: 815225239108334212}
+    - {fileID: 3815546084494592635}
+    - {fileID: 7461091532015848238}
+    - {fileID: 6515191038823474561}
+    - {fileID: 2378286147905554290}
+    - {fileID: 8854028245114918060}
+    waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
+  - name: 1drugs 35
+    type: 1
+    wait: 1
+    interval: 1
+    target: {fileID: 5779444706612856513}
+    targets:
+    - {fileID: 1322725112840684902}
+    - {fileID: 252997437353473638}
+    - {fileID: 2436322106448903196}
+    - {fileID: 3920444289439717651}
+    - {fileID: 2647017106588464422}
+    - {fileID: 2185588044244221458}
+    - {fileID: 938895623247108548}
+    - {fileID: 2153270021188691877}
+    - {fileID: 8853887239397987666}
+    - {fileID: 7628843530367010890}
+    - {fileID: 2317744705293719980}
+    waveSprite: {fileID: 21300000, guid: 6e1c41f10e24e4984ac8b83016ff17d9, type: 3}
   - name: wait 30
     type: 0
     wait: 10
